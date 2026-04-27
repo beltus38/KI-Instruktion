@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Selfservice - bmomTest",
+      "type": "al",
+      "request": "launch",
+      "environmentType": "OnPrem",
+      "server": "https://start.tso.de",
+      "serverInstance": "bmomTestdev",
+      "port": 443,
+      "authentication": "UserPassword",
+      "startupObjectId": 22,
+      "breakOnError": "All",
+      "breakOnRecordWrite": "None",
+      "launchBrowser": true,
+      "enableSqlInformationDebugger": true,
+      "enableLongRunningSqlStatements": true,
+      "longRunningSqlStatementsThreshold": 500,
+      "numberOfSqlStatements": 10,
+      "tenant": "default",
+      "usePublicURLFromServer": true,
+        "schemaUpdateMode": "ForceSync",
+      
+    }
+  ]
+}
