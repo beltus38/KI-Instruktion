@@ -20,7 +20,7 @@
       "numberOfSqlStatements": 10,
       "tenant": "default",
       "usePublicURLFromServer": true,
-        "schemaUpdateMode": "ForceSync",
+       
       
     }
   ]
