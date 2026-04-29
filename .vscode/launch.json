@@ -6,7 +6,7 @@
       "type": "al",
       "request": "launch",
       "environmentType": "OnPrem",
-      "server": "https://start.tso.de",#
+      "server": "https://start.tso.de",
       "serverInstance": "bmomTest2dev",
       "port": 443,
       "authentication": "UserPassword",
