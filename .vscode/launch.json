@@ -2,12 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Selfservice - bmomTest",
+      "name": "Selfservice - bmomTest2",
       "type": "al",
       "request": "launch",
       "environmentType": "OnPrem",
-      "server": "https://start.tso.de",
-      "serverInstance": "bmomTestdev",
+      "server": "https://start.tso.de",#
+      "serverInstance": "bmomTest2dev",
       "port": 443,
       "authentication": "UserPassword",
       "startupObjectId": 22,
@@ -19,9 +19,7 @@
       "longRunningSqlStatementsThreshold": 500,
       "numberOfSqlStatements": 10,
       "tenant": "default",
-      "usePublicURLFromServer": true,
-       
-      
+      "usePublicURLFromServer": true
     }
   ]
 }
