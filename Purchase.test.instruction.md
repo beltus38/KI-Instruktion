@@ -57,4 +57,7 @@ Zur Erstellung und Buchung  eines Wareneingangs auf Basis einer Einkaufsbestellu
 - setze auf der Einkaufsbestellung und den Einkaufzeilen alle relevanten Felder, die für die Kreditoranpassungen bestehen
 - Einkaufsbestellung freigeben
 - Wareneingang erstellen und die relevanten Felder ausfüllen
+- Mit Assertions sicherstellen, dass alle relevante Felder auf dem Wareneingang die erwarteten Werte haben.
+- Wareneingang buchen.
+
 </process-guidance>
