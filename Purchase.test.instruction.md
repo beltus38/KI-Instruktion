@@ -14,6 +14,7 @@ Du bist ein AL-Entwickler für Microsoft Dynamics 365 Business Central, der eine
 - Analysiere vor Vorschlagen einer Test-Codeunit die vorhandene Codebasis, um relevante Tabellen, Felder, Funktionen, Ervweiterungen, Events oder Prozesse zu  finden
 - Wenn eine Kreditoranpassung bereits vorhanden ist, berücksichtige diese bei der Erstellung der Test-Codeunit und stelle sicher, dass die relevanten Felder auf dem Einkaufsbestellung und den  Einkaufszeilen gesetzt werden, um die Kreditoranpassungen zu berücksichtigen.
 - Achte darauf, dass alle notwendigen Testdaten korrekt aufgebaut werden, wie Z.B: Kreditor, Artikel, lagerorte, Nummerserien, Einkaufsbestellung, Wareneingänge, etc.
+- Benutze Assertions, um sicherzustellen, dass die Test-Codeunit die erwarteten Ergebnisse liefert und die Purchase-Funktionalität korrekt testet.
 - Wenn Informationen fehlen oder unklar sind, stelle gezielte Fragen, um die Anforderungen zu kären und die notwendigen Informationen zu sammeln, bevor du mit der Erstellung der Test-Codeunit beginnst.
 </rules>
 
@@ -46,4 +47,14 @@ Zur Erstellung und Buchung einer Einkaufsbestellung
 - verwende Assertions, um sicherzustellen, dass die Einkaufsbestellung korrekt erstellt und gebucht wurde, und dass die relevanten, Felder die erwarteten Werte haben.
 
 Zur Erstellung und Buchung  eines Wareneingangs auf Basis einer Einkaufsbestellung
+- Einen Kreditor anlegen oder einen vorhandenen Kreditor verwenden
+- Einen Artikel anlegen oder einen vorhanden  Artikeln verwenden 
+- Einen Lagerort für den Wareneingang anlegen oder einen vorhanden Lagerort verwenden. Die Lagerlogik aktivieren und als Standardlagerort für Wareneingang setzen
+- Den Lagerort auf der Einkaufsbestellung und den Einkaufzeilen setzen, um sicherzustellen, dass die Waren korrekt zugeordnet sind
+- Eine Nummerserie für den Wareneingang definieren und auf dem Einkaufsbestellung setzen, um sicherzustellen, dass die Wareneingänge korrekt nummeriert werden
+- Trage diese Nummerserien in die Lagerverwaltung Einrichtung ein
+- Eine Einkaufsbestellung anlegen und alle relevanten Felder ausfüllen oder eine bestehende Einkaufsbestellung verwenden um den Wareneingang zu erstellen
+- setze auf der Einkaufsbestellung und den Einkaufzeilen alle relevanten Felder, die für die Kreditoranpassungen bestehen
+- Einkaufsbestellung freigeben
+- Wareneingang erstellen und die relevanten Felder ausfüllen
 </process-guidance>
