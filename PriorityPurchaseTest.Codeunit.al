@@ -64,6 +64,62 @@ codeunit 50111 "Priority Purchase Test"
     end;
 
     // -----------------------------------------------------------------------
+    // Test: Nur Einkaufsbestellung anlegen (ohne Wareneingang)
+    // -----------------------------------------------------------------------
+    [Test]
+    procedure TestCreatePurchaseOrderOnly()
+    var
+        Vendor: Record Vendor;
+        Item: Record Item;
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+    begin
+        // [GIVEN] Kreditor anlegen
+        LibraryPurchase.CreateVendor(Vendor);
+
+        // [GIVEN] Artikel anlegen
+        LibraryInventory.CreateItem(Item);
+
+        // [WHEN] Einkaufsbestellung anlegen
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, Vendor."No.");
+        PurchaseHeader.Validate("Vendor Invoice No.", LibraryUtility.GenerateRandomCode(PurchaseHeader.FieldNo("Vendor Invoice No."), Database::"Purchase Header"));
+        PurchaseHeader.Modify(true);
+
+        // [WHEN] Einkaufszeile anlegen (Menge: 10, Einkaufspreis: 100)
+        LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", 10);
+        PurchaseLine.Validate("Direct Unit Cost", 100);
+        PurchaseLine.Modify(true);
+
+        // [THEN] Einkaufsbestellung muss existieren
+        Assert.IsTrue(
+            PurchaseHeader.Get(PurchaseHeader."Document Type"::Order, PurchaseHeader."No."),
+            'Einkaufsbestellung wurde nicht gefunden!');
+
+        // [THEN] Kreditor auf der Einkaufsbestellung prüfen
+        Assert.AreEqual(
+            Vendor."No.",
+            PurchaseHeader."Buy-from Vendor No.",
+            'Kreditor auf der Einkaufsbestellung ist falsch!');
+
+        // [THEN] Einkaufszeile muss existieren und korrekte Werte haben
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type"::Order);
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        PurchaseLine.SetRange(Type, PurchaseLine.Type::Item);
+        PurchaseLine.SetRange("No.", Item."No.");
+        Assert.IsTrue(
+            PurchaseLine.FindFirst(),
+            'Einkaufszeile wurde nicht gefunden!');
+        Assert.AreEqual(
+            10,
+            PurchaseLine.Quantity,
+            'Menge in der Einkaufszeile ist falsch!');
+        Assert.AreEqual(
+            100,
+            PurchaseLine."Direct Unit Cost",
+            'Einkaufspreis in der Einkaufszeile ist falsch!');
+    end;
+
+    // -----------------------------------------------------------------------
     // Test: Einkaufsbestellung mit Lagerort und Wareneingang (Warehouse Receipt)
     // -----------------------------------------------------------------------
     [Test]
