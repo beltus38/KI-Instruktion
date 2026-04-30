@@ -44,4 +44,6 @@ Zur Erstellung und Buchung einer Einkaufsbestellung
 - setze auf der Einkaufsbestellung und den Einkaufzeilen alle relevanten Felder, die für die Kreditoranpassungen bestehen
 - Buche die Einkaufsbestellung, mit liefern und fakturieren, um sicherzustellen, dass alle Prozesse korrekt durchlaufen werden.
 - verwende Assertions, um sicherzustellen, dass die Einkaufsbestellung korrekt erstellt und gebucht wurde, und dass die relevanten, Felder die erwarteten Werte haben.
+
+Zur Erstellung und Buchung  eines Wareneingangs auf Basis einer Einkaufsbestellung
 </process-guidance>
